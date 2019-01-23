@@ -1,8 +1,19 @@
-# @alifd/next intro
+# how to write a morden web app
+
+## things to learn
+
+```bash
+react
+yarn
+webpack
+babel
+@alifd/next
+```
 
 ## 在 creat-react-app 中使用 @alifd/next
 
 ```bash
+# sudo npm install -g create-react-app
 # create-react-app next-pm
 (omitted..)
 Initialized a git repository.
@@ -59,3 +70,4 @@ yarn dev
 
 1. [@alifd/next 快速上手](https://fusion.design/component/doc/105)
 2. [在 creat-react-app 中使用 @alifd/next](https://fusion.design/component/doc/1324)
+3. [webpack-Getting Started](https://webpack.js.org/guides/getting-started/)
