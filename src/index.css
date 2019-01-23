@@ -7,3 +7,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.nav-top .fusion {
+    margin: 8px 20px;
+    width: 100px;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+.nav-top .login-in {
+    margin: 0 20px;
+    color: #FFFFFF;
+}
+.nav-top .next-nav-item {
+    width: 120px;
+}
+
+.nav-left .next-row {
+    margin: 10px 0;
+}
+
+.nav-left .ctl-btn {
+    margin: 10px 0 0 10px;
+}
