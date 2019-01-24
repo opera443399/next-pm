@@ -22,10 +22,14 @@ body {
     width: 120px;
 }
 
-.nav-left .next-row {
-    margin: 10px 0;
+.content .next-row {
+    margin: 20px 0;
 }
 
-.nav-left .ctl-btn {
-    margin: 10px 0 0 10px;
+.content .my-menu-demo {
+    width: 200px;
+}
+
+.content .my-page-demo {
+    margin-top:10px;
 }

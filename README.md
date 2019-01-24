@@ -53,7 +53,7 @@ yarn add @alifd/next
 yarn add moment
 yarn add -D style-loader css-loader sass-loader node-sass
 yarn add -D webpack-cli webpack-merge webpack-dev-server clean-webpack-plugin html-webpack-plugin html-webpack-template
-yarn add -D @babel/core babel-loader @babel/preset-env @babel/preset-react
+yarn add -D @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties
 yarn add -D babel-plugin-import
 
 
