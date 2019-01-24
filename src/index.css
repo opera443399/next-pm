@@ -22,14 +22,14 @@ body {
     width: 120px;
 }
 
-.content .next-row {
+.container .next-row {
     margin: 20px 0;
 }
 
-.content .my-menu-demo {
+.container .menu-left {
     width: 200px;
 }
 
-.content .my-page-demo {
+.container .pagination {
     margin-top:10px;
 }

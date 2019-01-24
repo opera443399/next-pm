@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Grid, Nav, Menu, Table, Pagination, Button } from '@alifd/next';
+import { Grid, Nav, Menu, Table, Pagination, Button, Dialog } from '@alifd/next';
 import moment from 'moment';
 import './index.css';
 
@@ -8,10 +8,10 @@ const { Row, Col } = Grid;
 const { Item, SubNav } = Nav;
 const header = <span className="fusion">nextPM Demo</span>;
 const footer = <a className="login-in" href="javascript:;">Login in</a>;
-const { SubMenu, ItemMenu } = Menu;
+const { Group, Divider, SubMenu } = Menu;
 
 const onRowClick = function (record, index, e) {
-    console.log(record, index, e);
+    console.log("event=onRowClick, " + record, index, e);
 },
     dataSource = (j) => {
         const result = [];
@@ -29,7 +29,9 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataSource: dataSource(5)
+            dataSource: dataSource(5),
+            dialogVisible: false,
+            itemId: -1
         };
     }
 
@@ -63,7 +65,7 @@ class App extends React.Component {
         }
     }
 
-    onChange = (currentPage) => {
+    onChangePage = (currentPage) => {
         this.setState({
             loading: true
         });
@@ -73,11 +75,31 @@ class App extends React.Component {
                 loading: false
             });
         }, 200);
-    }
+    };
+
+    onChangeSelect = function (...args) {
+        console.log(args);
+    };
+
+    onOpen = (id) => {
+        this.setState({
+            dialogVisible: true,
+            itemId: id
+        });
+    };
+
+    onClose = reason => {
+        console.log("event=" + reason + ", id=" + this.state.id);
+        this.onRemove(this.state.id);
+        this.setState({
+            dialogVisible: false
+        });
+    };
+
 
     render() {
         const renderOper = (value, index, record) => {
-            return <a onClick={this.onRemove.bind(this, record.id)}>Remove({record.id})</a>;
+            return <a onClick={this.onOpen.bind(this, record.id)}>Remove({record.id})</a>;
         };
 
         return (
@@ -87,46 +109,53 @@ class App extends React.Component {
                     <Item key="project">Project</Item>
                     <Item key="about">About</Item>
                 </Nav>
-                <div className="content">
+                <div className="container">
                     <Row>
                         <Col xs={4} s={4} m={4}>
-                            <Menu defaultOpenKeys="1" className="my-menu-demo" openMode="single">
-                                <SubMenu key="0" label="Sub menu 1">
-                                    <Item key="0-0">Sub option 1</Item>
-                                    <Item key="0-1">Sub option 2</Item>
-                                    <Item key="0-2">Sub option 3</Item>
-                                </SubMenu>
-                                <SubMenu key="1" label="Sub menu 2">
-                                    <Item key="1-0">Sub option 1</Item>
-                                    <Item key="1-1">Sub option 2</Item>
-                                    <Item key="1-2">Sub option 3</Item>
-                                </SubMenu>
-                                <SubMenu key="2" label="Sub menu 3">
-                                    <Item key="2-0">Sub option 1</Item>
-                                    <Item key="2-1">Sub option 2</Item>
-                                    <Item key="2-2">Sub option 3</Item>
-                                </SubMenu>
-                                <SubMenu key="3" label="Sub menu 4">
-                                    <Item key="3-0">Sub option 1</Item>
-                                    <Item key="3-1">Sub option 2</Item>
-                                    <Item key="3-2">Sub option 3</Item>
+                            <Menu defaultOpenKeys="sub-menu" className="menu-left">
+                                <Group label="Group1">
+                                    <Item key="group-1-1">Option 1-1</Item>
+                                    <Item key="group-2-2">Option 1-2</Item>
+                                </Group>
+                                <Divider key="divider" />
+                                <Group label="Group2">
+                                    <Item key="group-2-1">Option 2-1</Item>
+                                    <Item key="group-2-2">Option 2-2</Item>
+                                    <Item key="link-1">
+                                        <a href="#" target="__blank">Option Link 1</a>
+                                    </Item>
+                                </Group>
+                                <Divider />
+                                <SubMenu key="sub-menu" label="Sub menu">
+                                    <Item key="sub-1">Sub option 1</Item>
+                                    <Item key="sub-2">Sub option 2</Item>
                                 </SubMenu>
                             </Menu>
                         </Col>
-                        <Col xs={20} s={20} m={20}>
+                        <Col xs={18} s={18} m={18}>
                             <div>
                                 <p><Button type="primary" onClick={this.onAdd}>Add Item</Button></p>
                                 <Table dataSource={this.state.dataSource}
                                     loading={this.state.loading}
-                                    onRowClick={onRowClick}>
+                                    onRowClick={onRowClick}
+                                    rowSelection={{ onChange: this.onChangeSelect }}>
                                     <Table.Column title="Id" dataIndex="id" />
                                     <Table.Column title="Title" dataIndex="title.name" />
                                     <Table.Column title="Time" dataIndex="time" />
                                     <Table.Column cell={renderOper} width="20%" />
                                 </Table>
-                                <Pagination onChange={this.onChange} className="my-page-demo" />
+                                <Pagination onChange={this.onChangePage} className="pagination" />
                             </div>
                         </Col>
+                        <Col xs={2} s={2} m={2}></Col>
+                        <Dialog
+                            title="Confirm"
+                            visible={this.state.dialogVisible}
+                            onOk={this.onClose.bind(this, 'onOk')}
+                            onCancel={this.onClose.bind(this, 'onCancel')}
+                            onClose={this.onClose}>
+                            Are you sure to remove this item?
+                        </Dialog>
                     </Row>
                 </div>
             </div>
