@@ -68,6 +68,7 @@ yarn dev
 
 ## 参考
 
-1. [@alifd/next 快速上手](https://fusion.design/component/doc/105)
-2. [在 creat-react-app 中使用 @alifd/next](https://fusion.design/component/doc/1324)
-3. [webpack-Getting Started](https://webpack.js.org/guides/getting-started/)
+1. [阿里重磅开源中后台UI解决方案Fusion](https://mp.weixin.qq.com/s/1Z9_jeofzSK8drDTmW8kVQ)
+2. [@alifd/next 快速上手](https://fusion.design/component/doc/105)
+3. [在 creat-react-app 中使用 @alifd/next](https://fusion.design/component/doc/1324)
+4. [webpack-Getting Started](https://webpack.js.org/guides/getting-started/)
