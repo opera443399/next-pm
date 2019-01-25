@@ -89,8 +89,8 @@ class App extends React.Component {
     };
 
     onClose = reason => {
-        console.log("event=" + reason + ", id=" + this.state.id);
-        this.onRemove(this.state.id);
+        console.log("event=" + reason + ", id=" + this.state.itemId);
+        this.onRemove(this.state.itemId);
         this.setState({
             dialogVisible: false
         });
