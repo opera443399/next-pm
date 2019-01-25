@@ -96,12 +96,11 @@ class App extends React.Component {
         });
     };
 
+    onDelete = (value, index, record) => {
+        return <Button warning onClick={this.onOpen.bind(this, record.id)}>Remove({record.id})</Button>;
+    };
 
     render() {
-        const renderOper = (value, index, record) => {
-            return <a onClick={this.onOpen.bind(this, record.id)}>Remove({record.id})</a>;
-        };
-
         return (
             <div>
                 <Nav className="nav-top" direction="hoz" type="primary" header={header} footer={footer} defaultSelectedKeys={['project']} triggerType="hover">
@@ -142,7 +141,7 @@ class App extends React.Component {
                                     <Table.Column title="Id" dataIndex="id" />
                                     <Table.Column title="Title" dataIndex="title.name" />
                                     <Table.Column title="Time" dataIndex="time" />
-                                    <Table.Column cell={renderOper} width="20%" />
+                                    <Table.Column cell={this.onDelete} width="20%" />
                                 </Table>
                                 <Pagination onChange={this.onChangePage} className="pagination" />
                             </div>
