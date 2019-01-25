@@ -8,7 +8,6 @@ const { Row, Col } = Grid;
 const { Item, SubNav } = Nav;
 const header = <span className="fusion">nextPM Demo</span>;
 const footer = <a className="login-in" href="javascript:;">Login in</a>;
-const { Group, Divider, SubMenu } = Menu;
 
 const onRowClick = function (record, index, e) {
     console.log("event=onRowClick, " + record, index, e);
@@ -103,33 +102,21 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Nav className="nav-top" direction="hoz" type="primary" header={header} footer={footer} defaultSelectedKeys={['project']} triggerType="hover">
+                <Nav className="nav-top" direction="hoz" hozAlign="right" type="primary" header={header} footer={footer} defaultSelectedKeys={['project']} triggerType="hover">
                     <Item key="home">Home</Item>
-                    <Item key="project">Project</Item>
-                    <Item key="about">About</Item>
+                    <Item key="guides">Guides</Item>
+                    <Item key="help">Help</Item>
                 </Nav>
                 <div className="container">
                     <Row>
                         <Col xs={4} s={4} m={4}>
-                            <Menu defaultOpenKeys="sub-menu" className="menu-left">
-                                <Group label="Group1">
-                                    <Item key="group-1-1">Option 1-1</Item>
-                                    <Item key="group-2-2">Option 1-2</Item>
-                                </Group>
-                                <Divider key="divider" />
-                                <Group label="Group2">
-                                    <Item key="group-2-1">Option 2-1</Item>
-                                    <Item key="group-2-2">Option 2-2</Item>
-                                    <Item key="link-1">
-                                        <a href="#" target="__blank">Option Link 1</a>
-                                    </Item>
-                                </Group>
-                                <Divider />
-                                <SubMenu key="sub-menu" label="Sub menu">
-                                    <Item key="sub-1">Sub option 1</Item>
-                                    <Item key="sub-2">Sub option 2</Item>
-                                </SubMenu>
-                            </Menu>
+                            <Nav className="nav-left" defaultSelectedKeys={['projectList']} defaultOpenKeys="project">
+                                <Item icon="favorites-filling">Dashboard</Item>
+                                <SubNav icon="smile" key="project" label="Project">
+                                    <Item key="projectList">Project List</Item>
+                                    <Item key="projectDetails">Project Details</Item>
+                                </SubNav>
+                            </Nav>
                         </Col>
                         <Col xs={18} s={18} m={18}>
                             <div>
