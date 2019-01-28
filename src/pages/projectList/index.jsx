@@ -1,9 +1,7 @@
 import React from 'react';
 import './index.scss';
 import moment from 'moment';
-import { Grid, Table, Pagination, Button, Dialog } from '@alifd/next';
-
-const { Row, Col } = Grid;
+import { Table, Pagination, Button, Dialog } from '@alifd/next';
 
 const onRowClick = function (record, index, e) {
     console.log("event=onRowClick, " + record, index, e);
@@ -97,7 +95,7 @@ class ProjectList extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="right-content">
                 <div>
                     <p>Project List</p>
                 </div>
