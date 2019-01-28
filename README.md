@@ -51,11 +51,10 @@ Happy hacking!
 ```bash
 yarn add @alifd/next
 yarn add moment
+yarn add react-router-dom
 yarn add -D style-loader css-loader sass-loader node-sass
 yarn add -D webpack-cli webpack-merge webpack-dev-server clean-webpack-plugin html-webpack-plugin html-webpack-template
-yarn add -D @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties
-yarn add -D babel-plugin-import
-
+yarn add -D @babel/core babel-loader babel-plugin-import @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators
 
 ```
 

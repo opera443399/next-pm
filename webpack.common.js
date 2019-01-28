@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './src/index.js'
+        app: './src/index.jsx'
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
@@ -27,10 +27,18 @@ module.exports = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+        alias: {
+            components: path.join(__dirname, 'src/components'),
+            layouts: path.join(__dirname, 'src/layouts'),
+            pages: path.join(__dirname, 'src/pages'),
+        },
+    },
     module: {
         rules: [
             {
-                test: /\.js?$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: [
                     'babel-loader'
