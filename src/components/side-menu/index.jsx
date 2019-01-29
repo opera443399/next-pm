@@ -38,7 +38,7 @@ class SideMenu extends React.Component {
                 );
             }
             return (
-                <Item key={item.path}><Link to={`${item.path}${location.search}`}>{item.name}</Link></Item>
+                <Item key={item.path} icon={item.icon}><Link to={`${item.path}${location.search}`}>{item.name}</Link></Item>
             );
         });
     }

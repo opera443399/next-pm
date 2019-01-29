@@ -5,31 +5,39 @@ const asideMenuConfig = [
     {
         name: 'Dashboard',
         path: '/dashboard',
-        icon: 'home',
-    },
-    {
-        name: 'Resource',
-        path: '/resource',
+        key: 'dashboard',
         icon: 'smile',
     },
     {
-        name: 'Project',
-        path: '/project',
-        icon: 'home',
+        name: 'Resources',
+        path: '/resources',
+        key: 'resources',
+        icon: 'smile',
+    },
+    {
+        name: 'Projects',
+        path: '/projects',
+        key: 'projects',
+        icon: 'smile',
         children: [
             {
-                name: 'list',
+                name: 'project list',
                 path: '/project/list',
+                key: 'project-list',
+                icon: 'smile',
             },
             {
-                name: 'detail',
+                name: 'project detail',
                 path: '/project/detail',
+                key: 'project-detail',
+                icon: 'smile',
             },
         ],
     },
     {
         name: 'Help',
         path: '/help',
+        key: 'help',
         icon: 'help',
     }
 ];
